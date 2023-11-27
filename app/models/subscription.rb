@@ -1,3 +1,5 @@
 class Subscription < ApplicationRecord
-  enum status: ["disabled", "enabled"]
+  has_many :customer_subscriptions
+  has_many :customers, through: :customer_subscriptions
+  enum status: ["retired", "current"]
 end
